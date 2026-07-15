@@ -1,0 +1,59 @@
+:root {
+  --bg: #081426;
+  --panel: #0f2138;
+  --panel-hi: #152b47;
+  --line: #22406a;
+  --text: #e9f0fa;
+  --muted: #8ca3c0;
+  --yellow: #d8f435;
+  --up: #3ddc84;
+  --down: #ff6b5e;
+  --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --disp: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --body: "Barlow", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body);
+}
+
+@keyframes tickerScroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tape { animation: none !important; }
+}
+
+tr.row:hover {
+  background: var(--panel-hi);
+}
+
+input:focus,
+button:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 1px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(340px, 1.4fr) minmax(300px, 1fr);
+  gap: 16px;
+  padding: 0 22px 24px;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 0 12px 20px;
+  }
+}
